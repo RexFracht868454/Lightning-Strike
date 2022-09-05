@@ -5,9 +5,7 @@ import cn.nukkit.entity.weather.EntityLightning;
 import cn.nukkit.network.protocol.AddEntityPacket;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.plugin.PluginManager;
-import com.finnley.plugin.events.PlayerDeathListener;
-import com.finnley.plugin.events.PlayerJoinListener;
-import com.finnley.plugin.events.PlayerQuitListener;
+import com.finnley.plugin.events.*;
 
 public class Main extends PluginBase {
 
@@ -35,6 +33,8 @@ public class Main extends PluginBase {
         pluginManager.registerEvents(new PlayerJoinListener(this), this);
         pluginManager.registerEvents(new PlayerQuitListener(this), this);
         pluginManager.registerEvents(new PlayerDeathListener(this), this);
+        pluginManager.registerEvents(new PlayerRespawnListener(this), this);
+        pluginManager.registerEvents(new PlayerKickListener(this), this);
     }
 
 
