@@ -2,5 +2,5 @@ name: LightningPlugin
 version: 1.0.0
 api: 1.0.0
 author: Finnley
-main: me.finnley.plugin.Main
+main: com.finnley.plugin.Main
 description: Lightning strikes
