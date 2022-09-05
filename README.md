@@ -1,3 +1,3 @@
 # Lightning-Strike
 
-Simple Lightning Strikes on Player Join, Player Quit, Player Death, Player Kick, Player Respawn
+Simple Lightning Strikes at events which you can enabel in a config file
