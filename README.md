@@ -1,3 +1,3 @@
 # Lightning-Strike
 
-Simple Lightning Strikes on Player Join, Player Quit, Player Death 
+Simple Lightning Strikes on Player Join, Player Quit, Player Death, Player Kick, Player Respawn
