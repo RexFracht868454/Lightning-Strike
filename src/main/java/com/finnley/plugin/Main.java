@@ -11,16 +11,16 @@ import com.finnley.plugin.events.PlayerQuitListener;
 
 public class Main extends PluginBase {
 
-    private boolean onJoin;
-    private boolean onQuit;
-    private boolean onDeath;
+    public boolean onJoin;
+    public boolean onQuit;
+    public boolean onDeath;
+    public boolean onRespawn;
+    public boolean onKick;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
-        onJoin = getConfig().getBoolean("onJoin", true);
-        onQuit = getConfig().getBoolean("onQuit", true);
-        onDeath = getConfig().getBoolean("onDeath", true);
+        registerConfigContent();
         registerListener();
         this.getLogger().info("§aLightning plugin enabled");
     }
@@ -32,9 +32,9 @@ public class Main extends PluginBase {
 
     private void registerListener() {
         final PluginManager pluginManager = this.getServer().getPluginManager();
-        pluginManager.registerEvents(new PlayerJoinListener(), this);
-        pluginManager.registerEvents(new PlayerQuitListener(), this);
-        pluginManager.registerEvents(new PlayerDeathListener(), this);
+        pluginManager.registerEvents(new PlayerJoinListener(this), this);
+        pluginManager.registerEvents(new PlayerQuitListener(this), this);
+        pluginManager.registerEvents(new PlayerDeathListener(this), this);
     }
 
 
@@ -57,5 +57,13 @@ public class Main extends PluginBase {
         for (Player pl : player.getLevel().getPlayers().values()) {
             pl.dataPacket(addEntityPacket);
         }
+    }
+
+    private void registerConfigContent() {
+        onJoin = getConfig().getBoolean("onJoin", true);
+        onQuit = getConfig().getBoolean("onQuit", true);
+        onDeath = getConfig().getBoolean("onDeath", true);
+        onRespawn = getConfig().getBoolean("onRespawn", true);
+        onKick = getConfig().getBoolean("onKick", true);
     }
 }

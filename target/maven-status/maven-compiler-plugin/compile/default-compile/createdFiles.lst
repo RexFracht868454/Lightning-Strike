@@ -1,4 +1,6 @@
-com\finnley\plugin\Main.class
+com\finnley\plugin\events\PlayerKickListener.class
 com\finnley\plugin\events\PlayerDeathListener.class
+com\finnley\plugin\events\PlayerRespawnListener.class
+com\finnley\plugin\Main.class
 com\finnley\plugin\events\PlayerJoinListener.class
 com\finnley\plugin\events\PlayerQuitListener.class

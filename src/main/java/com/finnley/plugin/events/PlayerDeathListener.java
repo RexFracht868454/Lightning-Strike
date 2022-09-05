@@ -1,15 +1,24 @@
 package com.finnley.plugin.events;
 
-import cn.nukkit.Player;
-import cn.nukkit.entity.Entity;
 import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
+import cn.nukkit.event.player.PlayerDeathEvent;
 import com.finnley.plugin.Main;
 
 public class PlayerDeathListener implements Listener {
 
-    @EventHandler
-    public void onPlayerDeath(cn.nukkit.event.player.PlayerDeathEvent event) {
-        Main.strikeLightning(event.getEntity());
+    Main plugin;
+
+    public PlayerDeathListener(Main plugin) {
+        this.plugin = plugin;
+    }
+
+    @EventHandler(priority = EventPriority.HIGH)
+    public void onPlayerDeath(PlayerDeathEvent event) {
+
+        if (plugin.onDeath) {
+            Main.strikeLightning(event.getEntity());
+        }
     }
 }

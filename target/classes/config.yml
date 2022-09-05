@@ -1,3 +1,5 @@
 onJoin: true
 onQuit: true
 onDeath: true
+onRespawn: true
+onKick: true

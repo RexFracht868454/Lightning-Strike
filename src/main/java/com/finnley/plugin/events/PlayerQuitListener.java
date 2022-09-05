@@ -1,13 +1,24 @@
 package com.finnley.plugin.events;
 
 import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
+import cn.nukkit.event.player.PlayerQuitEvent;
 import com.finnley.plugin.Main;
 
 public class PlayerQuitListener implements Listener {
 
-    @EventHandler
-    public void onPlayerJoin(cn.nukkit.event.player.PlayerQuitEvent event) {
-        Main.strikeLightning(event.getPlayer());
+    Main plugin;
+
+    public PlayerQuitListener(Main plugin) {
+        this.plugin = plugin;
+    }
+
+    @EventHandler(priority = EventPriority.HIGH)
+    public void onPlayerJoin(PlayerQuitEvent event) {
+
+        if (plugin.onQuit) {
+            Main.strikeLightning(event.getPlayer());
+        }
     }
 }
