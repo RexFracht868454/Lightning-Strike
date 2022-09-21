@@ -1,6 +1,9 @@
-com\finnley\plugin\events\PlayerKickListener.class
-com\finnley\plugin\events\PlayerDeathListener.class
-com\finnley\plugin\events\PlayerRespawnListener.class
+com\finnley\plugin\listener\KickListener.class
+com\finnley\plugin\listener\JoinListener.class
+com\finnley\plugin\listener\QuitListener.class
+com\finnley\plugin\listener\DeathListener.class
 com\finnley\plugin\Main.class
-com\finnley\plugin\events\PlayerJoinListener.class
-com\finnley\plugin\events\PlayerQuitListener.class
+com\finnley\plugin\command\LightningCommand.class
+com\finnley\plugin\listener\ChangeGamemodeListener.class
+com\finnley\plugin\listener\RespawnListener.class
+com\finnley\plugin\listener\ToggleFlightListener.class

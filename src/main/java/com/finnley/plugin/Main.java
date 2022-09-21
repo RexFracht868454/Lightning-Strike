@@ -1,25 +1,31 @@
 package com.finnley.plugin;
 
 import cn.nukkit.Player;
+import cn.nukkit.command.SimpleCommandMap;
+import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.weather.EntityLightning;
 import cn.nukkit.network.protocol.AddEntityPacket;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.plugin.PluginManager;
-import com.finnley.plugin.events.*;
+import com.finnley.plugin.command.LightningCommand;
+import com.finnley.plugin.listener.*;
 
 public class Main extends PluginBase {
-
     public boolean onJoin;
     public boolean onQuit;
     public boolean onDeath;
     public boolean onRespawn;
     public boolean onKick;
+    public boolean onChangeGamemode;
+    public boolean onToggleFlight;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
-        registerConfigContent();
-        registerListener();
+        configValues();
+        registerPlayerListener();
+        registerMobListener();
+        registerCommand();
         this.getLogger().info("§aLightning plugin enabled");
     }
 
@@ -28,17 +34,27 @@ public class Main extends PluginBase {
         this.getLogger().info("§cLightning plugin disabled");
     }
 
-    private void registerListener() {
-        final PluginManager pluginManager = this.getServer().getPluginManager();
-        pluginManager.registerEvents(new PlayerJoinListener(this), this);
-        pluginManager.registerEvents(new PlayerQuitListener(this), this);
-        pluginManager.registerEvents(new PlayerDeathListener(this), this);
-        pluginManager.registerEvents(new PlayerRespawnListener(this), this);
-        pluginManager.registerEvents(new PlayerKickListener(this), this);
+    private void registerPlayerListener() {
+        PluginManager pluginManager = this.getServer().getPluginManager();
+        pluginManager.registerEvents(new JoinListener(this), this);
+        pluginManager.registerEvents(new QuitListener(this), this);
+        pluginManager.registerEvents(new DeathListener(this), this);
+        pluginManager.registerEvents(new RespawnListener(this), this);
+        pluginManager.registerEvents(new KickListener(this), this);
+        pluginManager.registerEvents(new ChangeGamemodeListener(this), this);
+        pluginManager.registerEvents(new ToggleFlightListener(this), this);
     }
 
+    private void registerMobListener() {
+        PluginManager pluginManager = this.getServer().getPluginManager();
+    }
 
-    public static void strikeLightning(Player player) {
+    private void registerCommand() {
+        SimpleCommandMap commandMap = this.getServer().getCommandMap();
+        commandMap.register("lightning", new LightningCommand("lightning"));
+    }
+
+    public static void strikeLightningPlayer(Player player) {
         long id = cn.nukkit.entity.Entity.entityCount++;
 
         AddEntityPacket addEntityPacket = new AddEntityPacket();
@@ -54,16 +70,19 @@ public class Main extends PluginBase {
         addEntityPacket.yaw = (float) player.getYaw();
         addEntityPacket.pitch = (float) player.getPitch();
 
-        for (Player pl : player.getLevel().getPlayers().values()) {
+        for (Player pl: player.getLevel().getPlayers().values()) {
             pl.dataPacket(addEntityPacket);
         }
+
     }
 
-    private void registerConfigContent() {
+    private void configValues() {
         onJoin = getConfig().getBoolean("onJoin", true);
         onQuit = getConfig().getBoolean("onQuit", true);
         onDeath = getConfig().getBoolean("onDeath", true);
         onRespawn = getConfig().getBoolean("onRespawn", true);
         onKick = getConfig().getBoolean("onKick", true);
+        onChangeGamemode = getConfig().getBoolean("onChangeGamemode", true);
+        onToggleFlight = getConfig().getBoolean("onToggleFlight", true);
     }
 }

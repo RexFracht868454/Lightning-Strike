@@ -1,6 +1,11 @@
 name: LightningPlugin
 version: 1.0.0
 api: 1.0.0
-author: Finnley
+author: Finnley/BlackNight
 main: com.finnley.plugin.Main
 description: Lightning strikes
+
+permissions:
+  lightning.command.cmd:
+    description: Allows to spawn a lightnin
+    default: op

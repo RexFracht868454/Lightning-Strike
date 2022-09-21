@@ -1,5 +1,8 @@
+#player events for lightning spawn
 onJoin: true
 onQuit: true
 onDeath: true
 onRespawn: true
 onKick: true
+onChangeGamemode: true
+onToggleFlight: true
