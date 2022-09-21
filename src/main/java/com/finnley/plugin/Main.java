@@ -24,7 +24,6 @@ public class Main extends PluginBase {
         saveDefaultConfig();
         configValues();
         registerPlayerListener();
-        registerMobListener();
         registerCommand();
         this.getLogger().info("§aLightning plugin enabled");
     }
@@ -45,16 +44,12 @@ public class Main extends PluginBase {
         pluginManager.registerEvents(new ToggleFlightListener(this), this);
     }
 
-    private void registerMobListener() {
-        PluginManager pluginManager = this.getServer().getPluginManager();
-    }
-
     private void registerCommand() {
         SimpleCommandMap commandMap = this.getServer().getCommandMap();
         commandMap.register("lightning", new LightningCommand("lightning"));
     }
 
-    public static void strikeLightningPlayer(Player player) {
+    public static void strikeLightning(Player player) {
         long id = cn.nukkit.entity.Entity.entityCount++;
 
         AddEntityPacket addEntityPacket = new AddEntityPacket();

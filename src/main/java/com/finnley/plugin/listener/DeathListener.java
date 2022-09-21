@@ -18,7 +18,7 @@ public class DeathListener implements Listener {
     public void onPlayerDeath(PlayerDeathEvent event) {
 
         if (plugin.onDeath) {
-            Main.strikeLightningPlayer(event.getEntity());
+            Main.strikeLightning(event.getEntity());
         }
     }
 }

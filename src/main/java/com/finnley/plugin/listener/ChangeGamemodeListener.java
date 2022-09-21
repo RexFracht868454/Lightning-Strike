@@ -18,7 +18,7 @@ public class ChangeGamemodeListener implements Listener {
     public void onXpChange(PlayerGameModeChangeEvent event) {
 
         if (plugin.onChangeGamemode) {
-            Main.strikeLightningPlayer(event.getPlayer());
+            Main.strikeLightning(event.getPlayer());
         }
     }
 }

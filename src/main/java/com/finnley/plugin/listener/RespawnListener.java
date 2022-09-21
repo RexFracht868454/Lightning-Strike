@@ -18,7 +18,7 @@ public class RespawnListener implements Listener {
     public void onRespawn(PlayerRespawnEvent event) {
 
         if (plugin.onRespawn) {
-            Main.strikeLightningPlayer(event.getPlayer());
+            Main.strikeLightning(event.getPlayer());
         }
     }
 }

@@ -18,7 +18,7 @@ public class ToggleFlightListener implements Listener {
     public void onToggleFlight(PlayerToggleFlightEvent event) {
 
         if (plugin.onToggleFlight) {
-            Main.strikeLightningPlayer(event.getPlayer());
+            Main.strikeLightning(event.getPlayer());
         }
     }
 }

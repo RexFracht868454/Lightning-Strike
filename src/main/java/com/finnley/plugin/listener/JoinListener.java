@@ -18,7 +18,7 @@ public class JoinListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
 
         if (plugin.onJoin) {
-            Main.strikeLightningPlayer(event.getPlayer());
+            Main.strikeLightning(event.getPlayer());
         }
     }
 }

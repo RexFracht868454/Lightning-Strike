@@ -18,7 +18,7 @@ public class QuitListener implements Listener {
     public void onPlayerJoin(PlayerQuitEvent event) {
 
         if (plugin.onQuit) {
-            Main.strikeLightningPlayer(event.getPlayer());
+            Main.strikeLightning(event.getPlayer());
         }
     }
 }

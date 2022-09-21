@@ -18,7 +18,7 @@ public class KickListener implements Listener {
     public void onKick(PlayerKickEvent event) {
 
         if (plugin.onKick) {
-            Main.strikeLightningPlayer(event.getPlayer());
+            Main.strikeLightning(event.getPlayer());
         }
     }
 }
