@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>McLighningAttack</artifactId>
+    <artifactId>McLightningAttack</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>org.powernukkit</groupId>
             <artifactId>powernukkit</artifactId>
-            <version>1.5.1.0-PN</version>
+            <version>1.6.0.1-PN</version>
         </dependency>
     </dependencies>
 
