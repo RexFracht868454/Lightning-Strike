@@ -10,7 +10,6 @@ Events:
   - onKick
   - onChangeGamemode
   - onToggleFlight
-  - 
   
 Command:
   - lightning = lightning where you look
