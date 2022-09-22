@@ -19,5 +19,5 @@ Command:
   
 Permissions:
  - lightning.command.cmd
-  description: Allows you to spawn a lightning
-  default: op
+ - description: Allows you to spawn a lightning
+ - default: op
