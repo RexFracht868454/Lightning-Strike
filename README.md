@@ -23,3 +23,4 @@ Permissions:
   - default: op
  - lightning.bypass.cmd
   - bypass
+  - defualt: op
