@@ -1,11 +1,14 @@
 name: LightningPlugin
 version: 1.0.0
 api: 1.0.0
-author: Finnley/BlackNight
-main: com.finnley.plugin.Main
+author: RexFracht868454/BlackNight
+main: com.rexfracht868454.plugin.Main
 description: Lightning strikes
 
 permissions:
   lightning.command.cmd:
-    description: Allows to spawn a lightnin
+    description: Allows to spawn a lightning
+    default: op
+  lightning.bypass.cmd:
+    description: Bypass to get hit by the lightning
     default: op
