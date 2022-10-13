@@ -27,7 +27,7 @@ jobs:
       run: mvn -B package --file pom.xml
       
     - name: Rename Artifacts
-      run: mv target/McLightningAttack-*.jar target/LightningStrike.jar
+      run: mv target/LightningStrike-*.jar target/LightningStrike.jar
       
     - name: Archive artifacts
       uses: actions/upload-artifact@v1
